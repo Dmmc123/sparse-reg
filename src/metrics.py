@@ -74,4 +74,4 @@ def ridge(y_hat: Tensor, y_true: Tensor, w: Tensor, lambda_: float) -> Tensor:
     :return: Ridge optimization goal w.r.t. current weights
     :rtype: Tensor
     """
-    return mean_squared_error(y_hat, y_true) + lambda_ / 2 * l2_norm(w)
+    return mean_squared_error(y_hat, y_true) + lambda_ / 2 * l2_norm(w) ** 2

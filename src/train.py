@@ -47,7 +47,7 @@ def train(dataset_folder: str,
     folder = f"{weights_folder}/{dataset_folder.split('/')[-1]}"
     Path(folder).mkdir(parents=True, exist_ok=True)
     torch.save(
-        obj=weights.state_dict(),
+        obj=weights,
         # output dir / dataset name _ loss function name
         f=f"{folder}/{loss_function.__name__}.pt"
     )
