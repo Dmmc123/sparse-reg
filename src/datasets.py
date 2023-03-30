@@ -50,8 +50,8 @@ def get_datasets(dataset_dir: str) -> list[RedditDataset]:
     :return: All dataset from the specified folder
     :rtype: list[RedditDataset]
     """
-    datasets_folder = [
+    dataset_folders = [
         str(folder) for folder in Path(dataset_dir).iterdir()
         if folder.is_dir()
     ]
-    return [RedditDataset(folder) for folder in datasets_folder]
+    return [RedditDataset(folder) for folder in dataset_folders]
