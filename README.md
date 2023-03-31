@@ -76,7 +76,91 @@ TO DO
 
 ## Metrics
 
-TO DO
+<table>
+    <thead>
+        <tr>
+            <th rowspan=2></th>
+            <th colspan=3>MachineLearning</th>
+            <th colspan=3>cscareerquestions</th>
+            <th colspan=3>compsci</th>
+            <th colspan=3>chess</th>
+            <th colspan=3>python</th>
+        </tr>
+        <tr>
+            <th>MSE</td>
+            <th>$\| \mathbf{w} \|_1$</th>
+            <th>$\| \mathbf{w} \|_2$</th>
+            <th>MSE</td>
+            <th>$\| \mathbf{w} \|_1$</th>
+            <th>$\| \mathbf{w} \|_2$</th>
+            <th>MSE</td>
+            <th>$\| \mathbf{w} \|_1$</th>
+            <th>$\| \mathbf{w} \|_2$</th>
+            <th>MSE</td>
+            <th>$\| \mathbf{w} \|_1$</th>
+            <th>$\| \mathbf{w} \|_2$</th>
+            <th>MSE</td>
+            <th>$\| \mathbf{w} \|_1$</th>
+            <th>$\| \mathbf{w} \|_2$</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>Linear Regression</td>
+          <td>7533</td>
+          <td>246714</td>
+          <td>4667</td>
+          <td>2289</td>
+          <td>404979</td>
+          <td>7031</td>
+          <td>13358</td>
+          <td>118967</td>
+          <td>2617</td>
+          <td>96576</td>
+          <td>488819</td>
+          <td>9240</td>
+          <td>195</td>
+          <td>231517</td>
+          <td>171875</td>
+        </tr>
+        <tr>
+          <td>Lasso Regression</td>
+          <td>13118</td>
+          <td>68490</td>
+          <td>2617</td>
+          <td>10338</td>
+          <td>71677</td>
+          <td>2843</td>
+          <td>16956</td>
+          <td>33002</td>
+          <td>1582</td>
+          <td>115069</td>
+          <td>92971</td>
+          <td>3845</td>
+          <td>2867</td>
+          <td>25540</td>
+          <td>1383</td>
+        </tr>
+        <tr>
+          <td>Ridge Regression</td>
+          <td>45551</td>
+          <td>7539</td>
+          <td>293</td>
+          <td>36757</td>
+          <td>5623</td>
+          <td>176</td>
+          <td>35423</td>
+          <td>6740</td>
+          <td>335</td>
+          <td>177142</td>
+          <td>6916</td>
+          <td>322</td>
+          <td>9360</td>
+          <td>4064</td>
+          <td>120</td>
+        </tr>
+    </tbody>
+</table>
 
 ## References
 
