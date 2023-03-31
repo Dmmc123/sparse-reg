@@ -45,7 +45,7 @@ In the subsequent sections, I will guide you through the setup and execution of 
 ```
 python src/parse.py --sub-reddits [SUB_REDDIT_NAMES] 
                     --output-dir <folder_for_data> 
-                    -env <path_to_env>
+                    --env <path_to_env>
 ```
 
 4. Once you have downloaded posts from your favourite sub-reddits, preprocess them to extract TF-IDF features:
