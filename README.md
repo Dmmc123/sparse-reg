@@ -62,12 +62,12 @@ python src/train.py --datasets-dir <processed_datasets_dir>
                     --weights-dir <folder_to_save_weights>
 ```
 
-6. Once the models were trained, you can run inference on them an compute the table of metrics:
+6. Once the models were trained, you can run inference on them, compute the table of metrics, and draw the the word clouds to visualize important words to get more upvotes:
 
 ```
 python src/evaluate.py --datasets-dir <processed_datasets_dir> 
                        --weights-dir <weights_folder> 
-                       --output-dir <folder_to_save_table>
+                       --output-dir <folder_to_save_artifacts>
 ```
 
 ## Visualization
