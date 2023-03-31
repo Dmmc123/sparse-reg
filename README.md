@@ -106,7 +106,7 @@ TO DO
     </thead>
     <tbody>
         <tr>
-          <td>Linear Regression</td>
+          <td>OLS</td>
           <td>7533</td>
           <td>246714</td>
           <td>4667</td>
@@ -124,7 +124,7 @@ TO DO
           <td>171875</td>
         </tr>
         <tr>
-          <td>Lasso Regression</td>
+          <td>Lasso</td>
           <td>13118</td>
           <td>68490</td>
           <td>2617</td>
@@ -142,7 +142,7 @@ TO DO
           <td>1383</td>
         </tr>
         <tr>
-          <td>Ridge Regression</td>
+          <td>Ridge</td>
           <td>45551</td>
           <td>7539</td>
           <td>293</td>
