@@ -174,7 +174,7 @@ def main():
         help="Folder for storing downloaded datasets"
     )
     argparser.add_argument(
-        "-env", required=False, default=".env",
+        "--env", required=False, default=".env",
         help="Path to environmental file .env",
     )
     args = argparser.parse_args()
