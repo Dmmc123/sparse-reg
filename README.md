@@ -80,6 +80,10 @@ Examples of words that negatively correlate with number of upvotes in [/r/chess]
 
 ![Negatively correlated words](evaluation/clouds/chess/mean_squared_error_neg.png)
 
+Example insights we can get from the observed data:
+* The biggest insight we can get from observed data is that words like *openai*, or *model*, or *ai* are more likely to make the post popuar within ML community
+* Usage of words like *knight*, or *tactic*, or *trap* is shown to be make amount of upvotes smaller within the chess community.
+
 ## Metrics
 
 <table>
