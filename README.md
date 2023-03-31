@@ -72,7 +72,13 @@ python src/evaluate.py --datasets-dir <processed_datasets_dir>
 
 ## Visualization
 
-TO DO
+Examples of words that positively correlate with number of upvotes in [/r/MachineLearning](https://www.reddit.com/r/MachineLearning/):
+
+![Positively correlated words](evaluation/clouds/MachineLearning/mean_squared_error_pos.png)
+
+Examples of words that negatively correlate with number of upvotes in [/r/chess](https://www.reddit.com/r/chess/):
+
+![Negatively correlated words](evaluation/clouds/chess/mean_squared_error_neg.png)
 
 ## Metrics
 
