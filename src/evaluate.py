@@ -1,10 +1,12 @@
 from metrics import mean_squared_error, l1_norm, l2_norm
 from datasets import RedditDataset
 from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 from pathlib import Path
 from torch import Tensor
 from torch import nn
 import pandas as pd
+import numpy as np
 import argparse
 import torch
 
@@ -68,7 +70,7 @@ def draw_clouds(weights_folder: str, dataset_folder: str, output_dir: str) -> No
     :param str dataset_folder: Folder with cleaned datasets
     :param str output_dir: Folder where to put processed pictures
     """
-    master_cloud =  WordCloud(
+    master_cloud = WordCloud(
         width=800,
         height=400,
         background_color="white"
@@ -101,6 +103,51 @@ def draw_clouds(weights_folder: str, dataset_folder: str, output_dir: str) -> No
         cloud_neg.to_file(f"{output_dir}/{dataset_name}/{loss_function_name}_neg.png")
 
 
+def plot_feature_importance_ranking(
+        weights_folder: str,
+        dataset_folder: str,
+        output_dir: str,
+        top_n: int = 20
+) -> None:
+    """
+    Plot feature importance ranking of words that positively and negatively impact the upvotes of the post
+
+    :param str weights_folder: Folder with trained regression models
+    :param str dataset_folder: Folder with cleaned datasets
+    :param str output_dir: Folder where to put processed pictures
+    :param int top_n: Number of top words to display in the ranking
+    """
+    # read all weight file names
+    weight_file_names = [str(p) for p in Path(weights_folder).rglob("*.pt")]
+
+    for weight_file_name in weight_file_names:
+        # parse criterion and dataset
+        dataset_name = weight_file_name.split("/")[-2]
+        loss_function_name = weight_file_name.split("/")[-1].split(".")[0]
+        # load weights propagate on corresponding dataset
+        weights = torch.load(weight_file_name)
+        dataset = RedditDataset(f"{dataset_folder}/{dataset_name}")
+
+        word_weights = weights.weight.detach().numpy().flatten()
+        sorted_indices = np.argsort(np.abs(word_weights))[::-1]
+        top_n_indices = sorted_indices[:top_n]
+
+        top_n_words = [dataset.vocabulary[i] for i in top_n_indices]
+        top_n_weights = word_weights[top_n_indices]
+
+        plt.figure(figsize=(7, 6))
+        plt.barh(top_n_words, top_n_weights)
+        plt.xlabel("Weight")
+        plt.ylabel("Words")
+        plt.title("Top {} Feature Importance Ranking".format(top_n))
+        plt.gca().invert_yaxis()
+
+        # Save the plot
+        Path(f"{output_dir}/{dataset_name}").mkdir(parents=True, exist_ok=True)
+        plt.savefig(f"{output_dir}/{dataset_name}/{loss_function_name}_ranking.png")
+        plt.close()
+
+
 def main():
     # define arguments
     argparser = argparse.ArgumentParser()
@@ -127,6 +174,11 @@ def main():
         weights_folder=args.weights_dir,
         dataset_folder=args.datasets_dir,
         output_dir=f"{args.output_dir}/clouds"
+    )
+    plot_feature_importance_ranking(
+        weights_folder=args.weights_dir,
+        dataset_folder=args.datasets_dir,
+        output_dir=f"{args.output_dir}/rankings"
     )
 
 
