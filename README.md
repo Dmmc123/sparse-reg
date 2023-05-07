@@ -80,97 +80,133 @@ Examples of words that negatively correlate with number of upvotes in [/r/chess]
 
 ![Negatively correlated words](evaluation/clouds/chess/mean_squared_error_neg.png)
 
-Example insights we can get from the observed data:
-* The biggest insight we can get from observed data is that words like *openai*, or *model*, or *ai* are more likely to make the post popuar within ML community
-* Usage of words like *knight*, or *tactic*, or *trap* is shown to be make amount of upvotes smaller within the chess community.
+Examples of feature importance plot for [/r/chess](https://www.reddit.com/r/chess/):
+
+![Word importance](evaluation/rankings/chess/mean_squared_error_ranking.png)
 
 ## Metrics
 
 <table>
-    <thead>
-        <tr>
-            <th rowspan=2></th>
-            <th colspan=3>MachineLearning</th>
-            <th colspan=3>cscareerquestions</th>
-            <th colspan=3>compsci</th>
-            <th colspan=3>chess</th>
-            <th colspan=3>python</th>
-        </tr>
-        <tr>
-            <th>MSE</td>
-            <th>$\| \mathbf{w} \|_1$</th>
-            <th>$\| \mathbf{w} \|_2$</th>
-            <th>MSE</td>
-            <th>$\| \mathbf{w} \|_1$</th>
-            <th>$\| \mathbf{w} \|_2$</th>
-            <th>MSE</td>
-            <th>$\| \mathbf{w} \|_1$</th>
-            <th>$\| \mathbf{w} \|_2$</th>
-            <th>MSE</td>
-            <th>$\| \mathbf{w} \|_1$</th>
-            <th>$\| \mathbf{w} \|_2$</th>
-            <th>MSE</td>
-            <th>$\| \mathbf{w} \|_1$</th>
-            <th>$\| \mathbf{w} \|_2$</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>OLS</td>
-          <td>7533</td>
-          <td>246714</td>
-          <td>4667</td>
-          <td>2289</td>
-          <td>404979</td>
-          <td>7031</td>
-          <td>13358</td>
-          <td>118967</td>
-          <td>2617</td>
-          <td>96576</td>
-          <td>488819</td>
-          <td>9240</td>
-          <td>195</td>
-          <td>231517</td>
-          <td>171875</td>
-        </tr>
-        <tr>
-          <td>Lasso</td>
-          <td>13118</td>
-          <td>68490</td>
-          <td>2617</td>
-          <td>10338</td>
-          <td>71677</td>
-          <td>2843</td>
-          <td>16956</td>
-          <td>33002</td>
-          <td>1582</td>
-          <td>115069</td>
-          <td>92971</td>
-          <td>3845</td>
-          <td>2867</td>
-          <td>25540</td>
-          <td>1383</td>
-        </tr>
-        <tr>
-          <td>Ridge</td>
-          <td>45551</td>
-          <td>7539</td>
-          <td>293</td>
-          <td>36757</td>
-          <td>5623</td>
-          <td>176</td>
-          <td>35423</td>
-          <td>6740</td>
-          <td>335</td>
-          <td>177142</td>
-          <td>6916</td>
-          <td>322</td>
-          <td>9360</td>
-          <td>4064</td>
-          <td>120</td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th colspan="2">Subreddit</th>
+      <th>Method</th>
+      <th>MSE</th>
+      <th>L1</th>
+      <th>L2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2"></td>
+      <td>MSE</td>
+      <td>10.7</td>
+      <td>318570.8</td>
+      <td>6494.9</td>
+    </tr>
+    <tr>
+      <td colspan="2">MachineLearning</td>
+      <td>Lasso</td>
+      <td>687.5</td>
+      <td>278854.1</td>
+      <td>6204.1</td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td>Ridge</td>
+      <td>2261.8</td>
+      <td>135578.7</td>
+      <td>3752.9</td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td>MSE</td>
+      <td>47.7</td>
+      <td>455806.7</td>
+      <td>8408.4</td>
+    </tr>
+    <tr>
+      <td colspan="2">cscareerquestions</td>
+      <td>Lasso</td>
+      <td>95.9</td>
+      <td>348375.5</td>
+      <td>7510.0</td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td>Ridge</td>
+      <td>4007.1</td>
+      <td>152264.1</td>
+      <td>3830.3</td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td>MSE</td>
+      <td>13.4</td>
+      <td>168560.1</td>
+      <td>4583.4</td>
+    </tr>
+    <tr>
+      <td colspan="2">compsci</td>
+      <td>Lasso</td>
+      <td>396.9</td>
+      <td>138771.6</td>
+      <td>4263.0</td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td>Ridge</td>
+      <td>2819.2</td>
+      <td>80455.7</td>
+      <td>2736.6</td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td>MSE</td>
+      <td>3373.2</td>
+      <td>1200434.6</td>
+      <td>25490.1</td>
+    </tr>
+    <tr>
+      <td colspan="2">chess</td>
+      <td>Lasso</td>
+      <td>3869.9</td>
+      <td>1056797.5</td>
+      <td>24319.7</td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td>Ridge</td>
+      <td>39884.5</td>
+      <td>248024.9</td>
+      <td>8363.5</td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td>MSE</td>
+      <td>192.5</td>
+      <td>229601.1</td>
+      <td>3882.6</td>
+    </tr>
+    <tr>
+      <td colspan="2">python</td>
+      <td>Lasso</td>
+      <td>208.8</td>
+      <td>175321.1</td>
+      <td>3509.7</td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td>Ridge</td>
+      <td>1253.9</td>
+      <td>77761.7</td>
+      <td>1793.7</td>
+    </tr>
+
+  </tbody>
+  <caption>Loss values for various regularization techniques and subreddits</caption>
 </table>
+
 
 ## References
 
