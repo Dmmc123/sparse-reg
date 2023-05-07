@@ -14,8 +14,8 @@ def train(dataset_folder: str,
           weights_folder: str,
           loss_function: Callable,
           epochs: int = 100,
-          lambdas: tuple[float] = (0.001, 0.01, 0.1, 1.0, 2.0, 5.0),
-          lrs: tuple[float] = (0.1, 0.5, 1.0, 2.0, 5.0, 10.0)) -> None:
+          lambdas: tuple[float] = (0.001, 0.01, 0.1, 1.0, 5.0, 10.0),
+          lrs: tuple[float] = (0.1, 1.0, 5.0, 10.0)) -> None:
     """
     Train and save the model on particular dataset
 
@@ -62,7 +62,7 @@ def train(dataset_folder: str,
     # saving
     folder = f"{weights_folder}/{dataset_folder.split('/')[-1]}"
     Path(folder).mkdir(parents=True, exist_ok=True)
-    print(best_params)
+    print(f"{folder}/{loss_function.__name__}.pt", best_params)
     torch.save(
         obj=best_weights,
         # output dir / dataset name _ loss function name
