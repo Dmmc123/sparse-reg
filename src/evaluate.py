@@ -113,7 +113,7 @@ def main():
         help="Folder for storing weights"
     )
     argparser.add_argument(
-        "--output_dir", "-out", required=True,
+        "--output-dir", "-out", required=True,
         help="Folder for csv metric report"
     )
     args = argparser.parse_args()
